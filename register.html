@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
+  </head>
+  <body>
+    <h1>Register</h1>
+    <form action="./index.html" enctype="multipart/form-data" method="post">
+      <label>Full Name</label><br />
+      <input type="fullName" name="fullName" placeholder="Nama Lengkap" /><br />
+      <label>Email</label><br />
+      <input type="email" name="email" placeholder="Email" /><br />
+      <label>Password</label><br />
+      <input type="password" name="password" placeholder="Password" /><br />
+      <label>Umur</label><br />
+      <input
+        type="number"
+        name="age"
+        placeholder="Umur"
+        min="14"
+        max="90"
+      /><br />
+      <label>Tanggal Lahir</label><br />
+      <input type="date" name="birtDate" placeholder="Tanggal Lahir" /><br />
+
+      <label>Warna Favorit</label><br />
+      <input
+        type="color"
+        name="favoriteColor"
+        placeholder="Warna Favorit"
+      /><br />
+
+      <label>Upload Foto </label><br />
+      <input type="file" name="profilePic" placeholder="Upload Foto" /><br />
+
+      <label>Jenis Kelamin</label><br />
+      <input type="radio" name="gender" /><label>Laki-laki</label>
+      <input type="radio" name="gender" /><label>Perempuan</label><br />
+
+      <label>Pilihan Hobi</label><br />
+      <input type="checkbox" name="hobbies" /><label>Berkebun</label><br />
+      <input type="checkbox" name="hobbies" /><label>Nyalahin Pemerintah</label
+      ><br />
+
+      <label>Pilih Negara</label><br />
+      <select name="country">
+        <option value="indonesia">Indonesia</option>
+        <option value="america">Amerika</option></select
+      ><br />
+
+      <label>Biografi Singkat</label><br />
+      <textarea rows="4" cols="50"></textarea><br />
+
+      <input type="submit" />
+      <p>Sudah punya akun? <a href="./login.html">login</a></p>
+    </form>
+  </body>
+</html>

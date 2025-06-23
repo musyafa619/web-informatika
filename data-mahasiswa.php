@@ -14,14 +14,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
   <body>
-    <table border="1" cellspacing="0" cellpadding="10px">
+    <h3>Data Mahasiswa</h3>
+    <a href="tambah-mahasiswa.php">
+      <button style="cursor:pointer" type="button">Tambah Data Mahasiswa</button>
+    </a>
+    <table style="margin-top: 20px;" border="1" cellspacing="0" cellpadding="10px">
       <tr>
-        <td>No</td>
-        <td>Nama</td>
-           <td>Foto</td>
-        <td>NIM</td>
-        <td>Jurusan</td>
-        <td>Alamat</td>
+        <th>No</th>
+        <th>Nama</th>
+        <th>Foto</th>
+        <th>NIM</th>
+        <th>Jurusan</th>
+        <th>Alamat</th>
+        <th>Aksi</th>
       </tr>
       <?php foreach($rows as $mhs){ ?>
       <tr>
@@ -33,6 +38,18 @@
         <td><?php echo $mhs["nim"] ?></td>
         <td><?php echo $mhs["jurusan"] ?></td>
         <td><?php echo $mhs["alamat"] ?></td>
+        <td>
+        <a href="ubah-mahasiswa.php?id=<?php $mhs["id"] ?>">
+          <button>
+        Edit
+      </button>
+        </a>
+         <a href="hapus-mahasiswa.php?id=<?php $mhs["id"] ?>">
+          <button>
+        Hapus
+      </button>
+      </a>
+      </td>
       </tr>
       <?php } ?>
     </table>

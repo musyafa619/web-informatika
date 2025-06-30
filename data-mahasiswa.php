@@ -3,7 +3,7 @@
    require 'function.php';
 
     $query = "SELECT * FROM mahasiswa";
-    $rows = tampilData($query);
+    $rows = tampilDataMahasiswa($query);
 
 ?>
 
@@ -39,12 +39,12 @@
         <td><?php echo $mhs["jurusan"] ?></td>
         <td><?php echo $mhs["alamat"] ?></td>
         <td>
-        <a href="ubah-mahasiswa.php?id=<?php $mhs["id"] ?>">
+        <a href="edit-mahasiswa.php?id=<?php echo $mhs["id"] ?>">
           <button>
         Edit
       </button>
         </a>
-         <a href="hapus-mahasiswa.php?id=<?php $mhs["id"] ?>">
+         <a href="hapus-mahasiswa.php?id=<?php echo $mhs["id"] ?>" onclick="return confirm('Affa iyh?')">
           <button>
         Hapus
       </button>

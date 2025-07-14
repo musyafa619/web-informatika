@@ -1,5 +1,12 @@
 <?php
 
+    session_start();
+
+    if(!isset($_SESSION['user_id'])){
+      header("Location: login.php");
+      exit;
+    }
+
    require 'function.php';
 
     $query = "SELECT * FROM mahasiswa";
@@ -14,6 +21,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
   <body>
+     <nav>
+      <ul style="list-style-type: none; text-align: center; padding: 0%">
+        <li style="display: inline; margin: 0% 15px; text-decoration: none">
+          <a href="home.html">Home</a>
+        </li>
+        <li style="display: inline; margin: 0% 15px; text-decoration: none">
+          <a href="about.html">About</a>
+        </li>
+        <li style="display: inline; margin: 0% 15px; text-decoration: none">
+          <a href="service.html">Services</a>
+        </li>
+        <li style="display: inline; margin: 0% 15px; text-decoration: none">
+          <a href="logout.php">Logout</a>
+        </li>
+      </ul>
+    </nav>
     <h3>Data Mahasiswa</h3>
     <a href="tambah-mahasiswa.php">
       <button style="cursor:pointer" type="button">Tambah Data Mahasiswa</button>

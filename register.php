@@ -1,10 +1,16 @@
 <?php
 
+    session_start();
+  
     require 'function.php';
+
+    if(isset($_SESSION['user_id'])){
+      header("Location: data-mahasiswa.php");
+      exit;
+    }
 
     if(isset($_POST['submit'])){
        $message = register($_POST);
-       echo $message;
 
     if($message == "Register Berhasil"){
       echo "

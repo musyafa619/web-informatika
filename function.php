@@ -112,4 +112,29 @@
         }
     }
 
+     function login($data){
+        global $koneksi;
+
+        $username = $data['username'];
+        $password = $data['password'];
+
+        $query_user = "SELECT * from user where username = '$username'";
+
+        $user_check =  mysqli_query($koneksi, $query_user);
+
+        $user = mysqli_fetch_assoc($user_check);
+
+        if(mysqli_num_rows($user_check) < 1) {
+            return "Username tidak ditemukan";
+        }
+
+        if(password_verify($password, $user["password"])){
+            $_SESSION["user_id"] = $user["id"];
+            header("Location: data-mahasiswa.php");
+            exit;
+        }else{
+            return "Username & password invalid";
+        }
+    }
+
 ?>

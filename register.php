@@ -4,14 +4,23 @@
 
     if(isset($_POST['submit'])){
        $message = register($_POST);
+       echo $message;
+
+    if($message == "Register Berhasil"){
+      echo "
+      <script>
+        alert('" . addslashes($message) . "');
+        document.location.href='login.php';
+      </script>";
+      }else{
+        echo "
+        <script>
+          alert('" . addslashes($message) . "');
+          document.location.href='register.php';
+        </script>
+      ";
+      }
     }
-
-    echo "
-    <script>
-    alert('" . addslashes($message) . "');
-    </script>
-    "
-
 ?>
 
 
@@ -35,7 +44,7 @@
     <label class="form-label" for="confirmPassword">Konfirmasi Password:</label><br>
     <input required class="form-control" type="password" name="confirmPassword" id="confirmPassword" required><br><br>
 
-    <input class="btn btn-primary" type="submit" value="Daftar">
+    <input class="btn btn-primary" type="submit" value="Daftar" name='submit'>
   </form>
 </div>
 </body>

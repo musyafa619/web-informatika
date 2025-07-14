@@ -8,8 +8,8 @@
   <body>
     <h1>Login</h1>
     <form action="./index.html" enctype="multipart/form-data" method="post">
-      <label>Email</label><br />
-      <input type="email" name="email" placeholder="Email" /><br />
+      <label>Username</label><br />
+      <input type="text" name="username" placeholder="Email" /><br />
       <label>Password</label><br />
       <input type="password" name="password" placeholder="password" /><br />
       <input type="checkbox" />

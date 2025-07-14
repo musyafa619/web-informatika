@@ -85,31 +85,30 @@
         $password = $data['password'];
         $confirmPassword = $data['confirmPassword'];
 
-        $query_user_name = "SELECT id from user where username = $username";
+        $query_user_name = "SELECT id from user where username = '$username'";
 
-        $username_check =  mysqli($koneksi, $query_user_name);
+        $username_check =  mysqli_query($koneksi, $query_user_name);
 
         if(mysqli_num_rows($username_check) > 0) {
             return "Username sudah terdaftar";
         }
         
 
-        if(!preg_match("/[^a-zA-Z0-9._-]+$/",$username)){
+      if (!preg_match("/^[a-zA-Z0-9._-]+$/", $username)) {
             return "Username tidak valid";
         }
-
         if($password !== $confirmPassword){
             return "Konfirmasi password salah";
         }
 
         $hash_password = password_hash($password, PASSWORD_DEFAULT);
 
-        $query = "INSERT INTO user (username, password) VALUES ('$username', '$password')";
+        $query = "INSERT INTO user (username, password) VALUES ('$username', '$hash_password')";
         
         if(mysqli_query($koneksi, $query)){
-            return "Register berhasil";
+            return "Register Berhasil";
         }else{
-            return "Register gagal";
+            return "Register Gagal";
         }
     }
 
